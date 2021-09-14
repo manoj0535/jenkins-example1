@@ -12,7 +12,7 @@ pipeline {
         stage ('build code') {
             steps {
                 sshagent(['Jenkines-new-pem']) {
-                sh "scp -o StrictHostKeyChecking=no -i */target/*.jar ubuntu@ec2-3-215-132-134.compute-1.amazonaws.com:/home/ubuntu"
+                sh "scp -o StrictHostKeyChecking=no */target/*.jar ubuntu@ec2-3-215-132-134.compute-1.amazonaws.com:/home/ubuntu"
             }
         }
         }
