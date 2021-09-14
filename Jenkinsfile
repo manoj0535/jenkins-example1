@@ -11,7 +11,7 @@ pipeline {
         }
         stage ('build code') {
             steps {
-                sshagent(['jenkins-ec2-privatekey']) {
+                sshagent(['Jenkines-new-pem']) {
                 sh "scp -o StrictHostKeyChecking=no -i */target/*.jar ubuntu@ec2-3-215-132-134.compute-1.amazonaws.com:/home/ubuntu"
             }
         }
