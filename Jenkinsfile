@@ -3,17 +3,16 @@ pipeline {
 
     stages {
         stage ('Compile Stage') {
-
             steps {
                 withMaven(maven : 'maven3.8') {
                     sh 'mvn clean install'
                 }
-            post {
-               success {
-                    echo 'Now Archiving...'
-                    archiveArtifacts artifacts: '**/target/*.jar'
-                   }
-              } 
+            }
+        }
+        stage ('build code') {
+            steps {
+                sshagent(['jenkins-ec2-privatekey']) {
+                scp */target/*.jar ubuntu@ec2-3-215-132-134.compute-1.amazonaws.com:/home/ubuntu
             }
         }
         // stage ('delivery') {
