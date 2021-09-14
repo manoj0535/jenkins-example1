@@ -15,6 +15,9 @@ pipeline {
                 sh "scp -o StrictHostKeyChecking=no -i target/*.jar ubuntu@ec2-3-215-132-134.compute-1.amazonaws.com:/home/ubuntu"
             }
         }
+        }
+    }
+}
         // stage ('delivery') {
         //     step {
         //         sh 'scp -v -o StrictHostKeyChecking=no -i target/*.jar ubuntu@3.215.132.134:/home/ubuntu'
